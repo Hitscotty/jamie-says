@@ -25,7 +25,7 @@ const Messages = () => {
   const scrollBottom = ref => ref && (ref.scrollTop = ref.scrollHeight)
   return (
     <MessageContainer ref={scrollBottom}>
-      {messages?.map(({ date, message }, index) => (
+      {messages.reverse()?.map(({ date, message }, index) => (
         <Message key={message + index} date={date}>
           {message}
         </Message>
