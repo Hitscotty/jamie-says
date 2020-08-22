@@ -1,4 +1,3 @@
-import Header from "../components/header"
 import Layout from "../components/layout"
 import { LoremIpsum } from "lorem-ipsum"
 import Message from "../components/message"
@@ -65,7 +64,6 @@ const StyledFooter = styled.footer`
 const IndexPage = () => (
   <Layout>
     <SEO title="Jamie says" />
-    <Header />
     <Messages />
     <StyledFooter />
   </Layout>
