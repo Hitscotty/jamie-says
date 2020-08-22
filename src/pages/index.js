@@ -4,7 +4,6 @@ import { LoremIpsum } from "lorem-ipsum"
 import Message from "../components/message"
 import React from "react"
 import SEO from "../components/seo"
-import Typing from "../components/typing"
 import styled from "styled-components"
 
 const lorem = new LoremIpsum({
