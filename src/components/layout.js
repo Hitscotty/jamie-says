@@ -7,9 +7,6 @@
 
 import "./layout.css"
 
-import { graphql, useStaticQuery } from "gatsby"
-
-import Header from "./header"
 import React from "react"
 import styled from "styled-components"
 
@@ -74,22 +71,10 @@ const StyledMain = styled.main`
   }
 `
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
-  return (
-    <StyledLayout>
-      <StyledMain>{children}</StyledMain>
-    </StyledLayout>
-  )
-}
+const Layout = ({ children }) => (
+  <StyledLayout>
+    <StyledMain>{children}</StyledMain>
+  </StyledLayout>
+)
 
 export default Layout
