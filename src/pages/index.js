@@ -21,11 +21,13 @@ const MessageContainer = styled.div`
   }
 `
 
+const earliestMessages = messages.reverse()
+
 const Messages = () => {
   const scrollBottom = ref => ref && (ref.scrollTop = ref.scrollHeight)
   return (
     <MessageContainer ref={scrollBottom}>
-      {messages.reverse()?.map(({ date, message }, index) => (
+      {earliestMessages.map(({ date, message }, index) => (
         <Message key={message + index} date={date}>
           {message}
         </Message>

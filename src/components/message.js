@@ -20,6 +20,29 @@ export const StyledMessage = styled.div`
   border-radius: 16px;
   background-color: rgba(255, 255, 255, 0.9);
   color: black;
+
+  @media (max-height: 950px) {
+    font-size: 90%;
+  }
+
+  @media (max-height: 950px) {
+    font-size: 90%;
+  }
+  @media (max-height: 850px) {
+    font-size: 80%;
+  }
+  @media (max-height: 750px) {
+    font-size: 70%;
+  }
+  @media (max-height: 650px) {
+    font-size: 60%;
+  }
+  @media (max-height: 550px) {
+    font-size: 50%;
+  }
+  @media (max-height: 350px) {
+    font-size: 40%;
+  }
 `
 
 const StyledSpan = styled.span`

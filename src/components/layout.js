@@ -12,7 +12,6 @@ import styled from "styled-components"
 
 const StyledLayout = styled.div`
   height: 100vh;
-  width: 80vw;
   display: flex;
   padding: 10px;
   display: flex;
@@ -50,6 +49,10 @@ const StyledMain = styled.main`
     0 0 1.25em 0.625em rgba(0, 0, 0, 0.3);
 
   backdrop-filter: blur(6px);
+
+  @media (max-height: 950px) {
+    font-size: 90%;
+  }
 
   @media (max-height: 950px) {
     font-size: 90%;
