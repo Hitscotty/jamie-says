@@ -3,29 +3,8 @@ import { LoremIpsum } from "lorem-ipsum"
 import Message from "../components/message"
 import React from "react"
 import SEO from "../components/seo"
+import messages from "../data/messages.json"
 import styled from "styled-components"
-
-const lorem = new LoremIpsum({
-  sentencesPerParagraph: {
-    max: 8,
-    min: 4,
-  },
-  wordsPerSentence: {
-    max: 16,
-    min: 4,
-  },
-})
-
-const randomDate = (start, end) => {
-  return new Date(
-    start.getTime() + Math.random() * (end.getTime() - start.getTime())
-  )
-}
-
-const messages = Array.from({ length: 20 }, () => ({
-  date: randomDate(new Date(2012, 0, 1), new Date()),
-  message: lorem.generateWords(Math.ceil(Math.random() * 10)),
-}))
 
 const MessageContainer = styled.div`
   align-items: flex-start;
