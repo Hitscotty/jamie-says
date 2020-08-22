@@ -1,21 +1,74 @@
-import React from "react"
-import { Link } from "gatsby"
-
+import Header from "../components/header"
 import Layout from "../components/layout"
-import Image from "../components/image"
+import { LoremIpsum } from "lorem-ipsum"
+import Message from "../components/message"
+import React from "react"
 import SEO from "../components/seo"
+import Typing from "../components/typing"
+import styled from "styled-components"
+
+const lorem = new LoremIpsum({
+  sentencesPerParagraph: {
+    max: 8,
+    min: 4,
+  },
+  wordsPerSentence: {
+    max: 16,
+    min: 4,
+  },
+})
+
+const randomDate = (start, end) => {
+  return new Date(
+    start.getTime() + Math.random() * (end.getTime() - start.getTime())
+  )
+}
+
+const messages = Array.from({ length: 20 }, () => ({
+  date: randomDate(new Date(2012, 0, 1), new Date()),
+  message: lorem.generateWords(Math.ceil(Math.random() * 10)),
+}))
+
+const MessageContainer = styled.div`
+  align-items: flex-start;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px auto;
+
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`
+
+const Messages = () => {
+  const scrollBottom = ref => ref && (ref.scrollTop = ref.scrollHeight)
+  return (
+    <MessageContainer ref={scrollBottom}>
+      {messages?.map(({ date, message }, index) => (
+        <Message key={message + index} date={date}>
+          {message}
+        </Message>
+      ))}
+    </MessageContainer>
+  )
+}
+
+const StyledFooter = styled.footer`
+  width: 100%;
+  height: 120px;
+  margin: 0;
+`
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <SEO title="Jamie says" />
+    <Header />
+    <Messages />
+    <StyledFooter />
   </Layout>
 )
 
